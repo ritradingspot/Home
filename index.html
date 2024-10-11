@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,7 @@
         body {
             font-family: 'Arial', sans-serif;
             text-align: center;
+            direction: rtl;
             margin: 0;
             padding: 0;
             display: flex;
@@ -51,7 +52,6 @@
             bottom: 0;
             width: 100%;
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-            flex-direction: row-reverse;
         }
         .navbar a {
             color: white;
@@ -86,7 +86,7 @@
             right: 20px;
             width: 60px;
             height: 60px;
-            background-image: url('https://i.suar.me/pv9oq/l');
+            background-image: url('https://i.suar.me/pv9oq/l'); /* تم وضع الرابط الجديد هنا */
             background-size: cover;
             cursor: pointer;
             border-radius: 10px;
@@ -96,6 +96,7 @@
         .adsgram:hover {
             transform: scale(1.1);
         }
+        /* تصميم النافذة المنبثقة */
         .modal {
             display: none;
             position: fixed;
@@ -142,72 +143,95 @@
     <h1>ADScoin</h1>
     <div id="points-display">Points: 0</div>
 
+    <!-- صورة تفاعلية لتحصيل النقاط -->
     <img src="https://i.suar.me/o496m/l" alt="Collect Points" class="clickable-image" id="click-image">
-    <div class="added-points" id="added-points">+1</div>
+    <div class="added-points" id="added-points">+1</div> <!-- Hidden initially -->
 
+    <!-- مربع الإعلان -->
     <div class="adsgram" id="adsgram"></div>
 
+    <!-- النافذة المنبثقة -->
     <div id="myModal" class="modal">
         <div class="modal-content">
-            <h2>Earn Points</h2>
-            <p>Get 1000 points!</p>
-            <button class="close-btn" id="closeModalBtn">Close</button>
+            <h2>شاهد إعلان AdsGram</h2>
+            <p>احصل على 1000 نقطة!</p>
+            <button class="close-btn" id="closeModalBtn">إغلاق</button>
         </div>
     </div>
 
     <script>
         let points = localStorage.getItem('points') ? parseInt(localStorage.getItem('points')) : 0;
 
+        // تحديث عرض النقاط
         function updatePointsDisplay() {
             document.getElementById('points-display').innerText = `Points: ${points}`;
         }
 
+        // عند الضغط على الصورة التفاعلية
         document.getElementById('click-image').addEventListener('click', function(e) {
-            if (e.detail >= 2) {
-                points += 1;
+            if (e.detail >= 2) { // Check if 2 or more fingers are used
+                points += 1; // Increase points by 1
 
+                // Show "+1" text
                 const addedPoints = document.getElementById('added-points');
                 addedPoints.style.display = 'block';
-                addedPoints.style.opacity = '1';
+                addedPoints.style.opacity = '1'; // Show the text
+                addedPoints.style.transition = 'opacity 0.5s ease-in-out'; // Transition effect
 
+                // Reset opacity after 1 second
                 setTimeout(() => {
-                    addedPoints.style.opacity = '0';
+                    addedPoints.style.opacity = '0'; // Hide the text
                     setTimeout(() => {
-                        addedPoints.style.display = 'none';
-                    }, 500);
+                        addedPoints.style.display = 'none'; // Hide it completely
+                    }, 500); // Wait for transition to finish
                 }, 1000);
 
+                // حفظ النقاط في LocalStorage
                 localStorage.setItem('points', points);
+
+                // تحديث العرض
                 updatePointsDisplay();
             }
         });
 
+        // عند الضغط على مربع الإعلان
         const adsgram = document.getElementById('adsgram');
         const modal = document.getElementById('myModal');
         const closeModalBtn = document.getElementById('closeModalBtn');
 
         adsgram.addEventListener('click', function() {
             if (!modal.style.display || modal.style.display === 'none') {
-                modal.style.display = 'flex';
+                modal.style.display = 'flex'; // Show modal
             }
 
+            // محاكاة مشاهدة إعلان AdsGram
             setTimeout(function() {
+                // زيادة النقاط بـ 1000
                 points += 1000;
+
+                // حفظ النقاط في LocalStorage
                 localStorage.setItem('points', points);
+
+                // تحديث العرض
                 updatePointsDisplay();
+
+                // إغلاق النافذة المنبثقة بعد 2 ثواني
                 modal.style.display = 'none';
             }, 2000);
         });
 
+        // إغلاق النافذة المنبثقة عند الضغط على زر الإغلاق
         closeModalBtn.addEventListener('click', function() {
             modal.style.display = 'none';
         });
 
+        // تحديث العرض عند تحميل الصفحة
         updatePointsDisplay();
     </script>
 
+    <!-- أزرار التنقل الرئيسية في الأسفل -->
     <div class="navbar">
-        <a href="index.html" class="active">
+        <a href="https://ritradingspot.github.io/Home/" class="active">
             <i class="fas fa-home"></i>
             Home
         </a>
@@ -219,10 +243,11 @@
             <i class="fas fa-wallet"></i>
             Wallet
         </a>
-        <a href="https://ritradingspot.github.io/Settings/">
-            <i class="fas fa-cog"></i>
-            Settings
+        <a href="https://ritradingspot.github.io/Referral/">
+            <i class="fas fa-user-friends"></i>
+            Referral
         </a>
     </div>
+
 </body>
 </html>
