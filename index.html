@@ -86,7 +86,7 @@
             right: 20px;
             width: 60px;
             height: 60px;
-            background-image: url('https://i.suar.me/pv9oq/l'); /* تم وضع الرابط الجديد هنا */
+            background-image: url('https://i.suar.me/pv9oq/l');
             background-size: cover;
             cursor: pointer;
             border-radius: 10px;
@@ -96,7 +96,6 @@
         .adsgram:hover {
             transform: scale(1.1);
         }
-        /* تصميم النافذة المنبثقة */
         .modal {
             display: none;
             position: fixed;
@@ -143,14 +142,11 @@
     <h1>ADScoin</h1>
     <div id="points-display">Points: 0</div>
 
-    <!-- صورة تفاعلية لتحصيل النقاط -->
-    <img src="https://i.suar.me/o496m/l" alt="Collect Points" class="clickable-image" id="click-image">
-    <div class="added-points" id="added-points">+1</div> <!-- Hidden initially -->
+    <img src="https://i.suar.me/LxYqo/l" alt="Collect Points" class="clickable-image" id="click-image">
+    <div class="added-points" id="added-points">+1</div>
 
-    <!-- مربع الإعلان -->
     <div class="adsgram" id="adsgram"></div>
 
-    <!-- النافذة المنبثقة -->
     <div id="myModal" class="modal">
         <div class="modal-content">
             <h2>شاهد إعلان AdsGram</h2>
@@ -162,74 +158,66 @@
     <script>
         let points = localStorage.getItem('points') ? parseInt(localStorage.getItem('points')) : 0;
 
-        // تحديث عرض النقاط
         function updatePointsDisplay() {
             document.getElementById('points-display').innerText = `Points: ${points}`;
         }
 
-        // عند الضغط على الصورة التفاعلية
         document.getElementById('click-image').addEventListener('click', function(e) {
-            if (e.detail >= 2) { // Check if 2 or more fingers are used
-                points += 1; // Increase points by 1
+            if (e.detail >= 2) {
+                points += 1;
 
-                // Show "+1" text
                 const addedPoints = document.getElementById('added-points');
                 addedPoints.style.display = 'block';
-                addedPoints.style.opacity = '1'; // Show the text
-                addedPoints.style.transition = 'opacity 0.5s ease-in-out'; // Transition effect
+                addedPoints.style.opacity = '1';
+                addedPoints.style.transition = 'opacity 0.5s ease-in-out';
 
-                // Reset opacity after 1 second
                 setTimeout(() => {
-                    addedPoints.style.opacity = '0'; // Hide the text
+                    addedPoints.style.opacity = '0';
                     setTimeout(() => {
-                        addedPoints.style.display = 'none'; // Hide it completely
-                    }, 500); // Wait for transition to finish
+                        addedPoints.style.display = 'none';
+                    }, 500);
                 }, 1000);
 
-                // حفظ النقاط في LocalStorage
                 localStorage.setItem('points', points);
-
-                // تحديث العرض
                 updatePointsDisplay();
             }
         });
 
-        // عند الضغط على مربع الإعلان
         const adsgram = document.getElementById('adsgram');
         const modal = document.getElementById('myModal');
         const closeModalBtn = document.getElementById('closeModalBtn');
 
         adsgram.addEventListener('click', function() {
             if (!modal.style.display || modal.style.display === 'none') {
-                modal.style.display = 'flex'; // Show modal
+                modal.style.display = 'flex';
             }
 
-            // محاكاة مشاهدة إعلان AdsGram
             setTimeout(function() {
-                // زيادة النقاط بـ 1000
                 points += 1000;
-
-                // حفظ النقاط في LocalStorage
                 localStorage.setItem('points', points);
-
-                // تحديث العرض
                 updatePointsDisplay();
-
-                // إغلاق النافذة المنبثقة بعد 2 ثواني
                 modal.style.display = 'none';
             }, 2000);
         });
 
-        // إغلاق النافذة المنبثقة عند الضغط على زر الإغلاق
         closeModalBtn.addEventListener('click', function() {
             modal.style.display = 'none';
         });
 
-        // تحديث العرض عند تحميل الصفحة
         updatePointsDisplay();
     </script>
 
-    <!-- أزرار التنقل الرئيسية في الأسفل -->
+    <script type="text/javascript">
+        var adsgramAPIKey = 'YOUR_ADSGRAM_API_KEY';
+
+        (function() {
+            var script = document.createElement('script');
+            script.src = 'https://adsgram.com/ads.js?api_key=' + adsgramAPIKey;
+            script.async = true;
+            document.body.appendChild(script);
+        })();
+    </script>
+
     <div class="navbar">
         <a href="https://ritradingspot.github.io/Home/" class="active">
             <i class="fas fa-home"></i>
