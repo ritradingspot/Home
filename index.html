@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADScoins - Welcome</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- إضافة مكتبة Font Awesome -->
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -14,8 +15,8 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            flex-direction: column; /* Vertical layout */
-            color: white; /* Default text color */
+            position: relative; /* لتحديد موضع الأيقونات بشكل عشوائي */
+            overflow: hidden; /* لمنع ظهور أي عناصر خارج الشاشة */
         }
 
         .container {
@@ -27,11 +28,7 @@
             width: 90%; /* Container width */
             max-width: 400px; /* Max width for larger screens */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .container:hover {
-            transform: translateY(-5px); /* Slight lift effect on hover */
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4); /* Increased shadow on hover */
+            z-index: 1; /* لجعل الحاوية فوق الأيقونات */
         }
 
         h1 {
@@ -57,12 +54,39 @@
             height: auto; /* Maintain aspect ratio */
         }
 
+        .toncoin-logo {
+            width: 50px; /* Width of Toncoin logo */
+            height: auto; /* Maintain aspect ratio */
+            margin-top: 20px; /* Margin above Toncoin logo */
+        }
+
         h2 {
             color: #333; /* Subheading color */
             font-size: 20px; /* Subheading font size */
             margin-top: 20px; /* Margin above subheading */
             animation: fadeIn 2s; /* Fade-in effect */
         }
+
+        .icon {
+            position: absolute; /* لتحديد موقع الأيقونات */
+            font-size: 40px; /* Icon size */
+            color: #ffffff; /* Icon color */
+            opacity: 0.8; /* Icon opacity */
+            transition: transform 0.3s ease; /* Transition effect */
+        }
+
+        .icon:hover {
+            transform: scale(1.2); /* تكبير الأيقونة عند التحويم */
+        }
+
+        /* عشوائية مواقع الأيقونات */
+        .icon1 { top: 10%; left: 5%; }
+        .icon2 { top: 20%; right: 10%; }
+        .icon3 { bottom: 20%; left: 15%; }
+        .icon4 { bottom: 10%; right: 5%; }
+        .icon5 { top: 30%; left: 40%; }
+        .icon6 { bottom: 25%; right: 30%; }
+        .icon7 { top: 40%; right: 40%; }
 
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -76,8 +100,18 @@
         <img src="https://i.suar.me/MLJwy/l" alt="ADScoins Logo" class="logo"> <!-- Application logo -->
         <h1>Welcome to ADScoins</h1>
         <img src="https://i.suar.me/9Pmve/l" alt="ADScoins Advertisement" class="ad-image"> <!-- Advertisement image -->
+        <img src="https://cryptologos.cc/logos/toncoin-ton-logo.png" alt="Toncoin Logo" class="toncoin-logo"> <!-- Toncoin logo -->
         <h2>Logging you in...</h2>
     </div>
+
+    <!-- إضافة الأيقونات العشوائية -->
+    <i class="fas fa-coins icon icon1" title="Earn ADScoins"></i>
+    <i class="fas fa-wallet icon icon2" title="Wallet for earnings"></i>
+    <i class="fas fa-gift icon icon3" title="Rewards and Bonuses"></i>
+    <i class="fas fa-chart-line icon icon4" title="Trading and Growth"></i>
+    <i class="fas fa-users icon icon5" title="Community"></i>
+    <i class="fas fa-bell icon icon6" title="Notifications"></i>
+    <i class="fas fa-star icon icon7" title="Achievements"></i>
 
     <script>
         // Function to automatically log in after 5 seconds
