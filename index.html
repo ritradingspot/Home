@@ -4,81 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADScoins - Welcome</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- إضافة مكتبة Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* أسلوب CSS كما هو في الكود الأصلي */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom right, #007bff, #00c6ff); /* Background gradient */
+            background: linear-gradient(to bottom right, #007bff, #00c6ff);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            position: relative; /* لتحديد موضع الأيقونات بشكل عشوائي */
-            overflow: hidden; /* لمنع ظهور أي عناصر خارج الشاشة */
+            position: relative;
+            overflow: hidden;
         }
-
         .container {
             text-align: center;
-            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
             padding: 30px;
-            width: 90%; /* Container width */
-            max-width: 400px; /* Max width for larger screens */
+            width: 90%;
+            max-width: 400px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            z-index: 1; /* لجعل الحاوية فوق الأيقونات */
+            z-index: 1;
         }
-
-        h1 {
-            margin: 10px 0;
-            font-size: 28px; /* Font size */
-            font-weight: bold; /* Bold font */
-            color: #333; /* Title color */
-        }
-
-        img {
-            max-width: 100%; /* Set image width to 100% */
-            height: auto; /* Maintain aspect ratio */
-            margin: 20px 0; /* Spacing around image */
-            border-radius: 10px; /* Rounded corners for images */
-        }
-
-        .logo {
-            max-width: 80%; /* Logo width */
-        }
-
-        .ad-image {
-            max-width: 100%; /* Ad image width */
-            height: auto; /* Maintain aspect ratio */
-        }
-
-        .toncoin-logo {
-            width: 50px; /* Width of Toncoin logo */
-            height: auto; /* Maintain aspect ratio */
-            margin-top: 20px; /* Margin above Toncoin logo */
-        }
-
-        h2 {
-            color: #333; /* Subheading color */
-            font-size: 20px; /* Subheading font size */
-            margin-top: 20px; /* Margin above subheading */
-            animation: fadeIn 2s; /* Fade-in effect */
-        }
-
-        .icon {
-            position: absolute; /* لتحديد موقع الأيقونات */
-            font-size: 40px; /* Icon size */
-            color: #ffffff; /* Icon color */
-            opacity: 0.8; /* Icon opacity */
-            transition: transform 0.3s ease; /* Transition effect */
-        }
-
-        .icon:hover {
-            transform: scale(1.2); /* تكبير الأيقونة عند التحويم */
-        }
-
+        h1 { margin: 10px 0; font-size: 28px; font-weight: bold; color: #333; }
+        img { max-width: 100%; height: auto; margin: 20px 0; border-radius: 10px; }
+        .logo { max-width: 80%; }
+        .ad-image { max-width: 100%; height: auto; }
+        .toncoin-logo { width: 50px; height: auto; margin-top: 20px; }
+        h2 { color: #333; font-size: 20px; margin-top: 20px; animation: fadeIn 2s; }
+        .icon { position: absolute; font-size: 40px; color: #ffffff; opacity: 0.8; transition: transform 0.3s ease; }
+        .icon:hover { transform: scale(1.2); }
         /* عشوائية مواقع الأيقونات */
         .icon1 { top: 10%; left: 5%; }
         .icon2 { top: 20%; right: 10%; }
@@ -87,24 +46,19 @@
         .icon5 { top: 30%; left: 40%; }
         .icon6 { bottom: 25%; right: 30%; }
         .icon7 { top: 40%; right: 40%; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="https://i.suar.me/1WAW3/l" alt="ADScoins Logo" class="logo"> <!-- Application logo -->
+        <img src="https://i.suar.me/1WAW3/l" alt="ADScoins Logo" class="logo">
         <h1>Welcome to ADScoins</h1>
-        <img src="https://i.suar.me/9Pmve/l" alt="ADScoins Advertisement" class="ad-image"> <!-- Advertisement image -->
-        <img src="https://cryptologos.cc/logos/toncoin-ton-logo.png" alt="Toncoin Logo" class="toncoin-logo"> <!-- Toncoin logo -->
+        <img src="https://i.suar.me/9Pmve/l" alt="ADScoins Advertisement" class="ad-image">
+        <img src="https://cryptologos.cc/logos/toncoin-ton-logo.png" alt="Toncoin Logo" class="toncoin-logo">
         <h2>Logging you in...</h2>
     </div>
 
-    <!-- إضافة الأيقونات العشوائية -->
     <i class="fas fa-coins icon icon1" title="Earn ADScoins"></i>
     <i class="fas fa-wallet icon icon2" title="Wallet for earnings"></i>
     <i class="fas fa-gift icon icon3" title="Rewards and Bonuses"></i>
@@ -114,10 +68,32 @@
     <i class="fas fa-star icon icon7" title="Achievements"></i>
 
     <script>
-        // Function to automatically log in after 5 seconds
-        setTimeout(() => {
-            window.location.href = "https://ritradingspot.github.io/Home1/"; // Main page link
-        }, 5000); // 5000 milliseconds (5 seconds)
+        // Function to send username to server and log in after 5 seconds
+        const username = window.Telegram.WebApp.initData; // جلب اسم المستخدم من تلجرام
+        const pointsToAdd = 20000; // النقاط التي سيتم إضافتها
+        
+        if (username) { // تحقق مما إذا كان هناك اسم مستخدم
+            fetch('/api/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username: username, points: pointsToAdd })
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.json(); // استخدام json بدلاً من text لاسترجاع البيانات
+            })
+            .then(data => {
+                console.log(data);
+                setTimeout(() => {
+                    window.location.href = "https://adscoiins.github.io/Home1/";
+                }, 5000); // 5000 milliseconds (5 seconds)
+            })
+            .catch(error => console.error('There was a problem with the fetch operation:', error));
+        } else {
+            console.error('No username found, cannot proceed to the main page.');
+        }
     </script>
 
 </body>
