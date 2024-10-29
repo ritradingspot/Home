@@ -72,28 +72,31 @@
         const username = window.Telegram.WebApp.initData; // جلب اسم المستخدم من تلجرام
         const pointsToAdd = 20000; // النقاط التي سيتم إضافتها
         
-        if (username) { // تحقق مما إذا كان هناك اسم مستخدم
-            fetch('/api/users', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ username: username, points: pointsToAdd })
-            })
-            .then(response => {
-                if (!response.ok) throw new Error('Network response was not ok');
-                return response.json(); // استخدام json بدلاً من text لاسترجاع البيانات
-            })
-            .then(data => {
-                console.log(data);
-                setTimeout(() => {
-                    window.location.href = "https://ritradingspot.github.io/Home1/";
-                }, 5000); // 5000 milliseconds (5 seconds)
-            })
-            .catch(error => console.error('There was a problem with the fetch operation:', error));
-        } else {
-            console.error('No username found, cannot proceed to the main page.');
-        }
+        // إعداد الفترة الزمنية للانتقال
+        setTimeout(() => {
+            if (username) { // تحقق مما إذا كان هناك اسم مستخدم
+                // إرسال البيانات إلى السيرفر
+                fetch('/api/users', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username: username, points: pointsToAdd })
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.json(); // استخدام json بدلاً من text لاسترجاع البيانات
+                })
+                .then(data => {
+                    console.log(data);
+                    // الانتقال إلى الصفحة الرئيسية بعد إضافة النقاط
+                    window.location.href = "https://adscoiins.github.io/Home1/";
+                })
+                .catch(error => console.error('There was a problem with the fetch operation:', error));
+            } else {
+                console.error('No username found, cannot proceed to the main page.');
+            }
+        }, 5000); // 5000 milliseconds (5 seconds)
     </script>
 
 </body>
